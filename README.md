@@ -5,16 +5,24 @@ Example of a catalog of cupcakes made with php
 
 ### Initialize
 
+Let's open a shell in the same folder of your project and runs the next command
+
+> composer init
+
 ![docs/composer_init.jpg](docs/composer_init.jpg)
 
-It will create the file called composer.json
+It will create the file called **composer.json**. It will ask for some information.
 
-🗎 composer.json
+📝 composer.json
 
 You could edit this file if you are pleased to.
 
 
 ### Installation of composer
+
+Using the previous shell, let-s run the command 
+
+| composer install
 
 ![docs/composer_install.jpg](docs/composer_install.jpg)
 
@@ -22,16 +30,27 @@ It will create the folder
 
 📁 \vendor
 
+And the file composer.lock 
+
+📝 composer.json
+
 ### Installation of libraries
+
+And again, using the same shell, let's run the next commands
+
+> composer require eftec/bladeone
+> composer require eftec/daoone
+> composer require eftec/documentstoreone
 
 ![docs/composer_require.jpg](docs/composer_require.jpg)
 
-Now, we will use 3 libraries: 
+It will download the next 3 libraries: 
 
 * eftec/bladeone for the templates
 * eftec/daoone for the database (if we want to use the database)
 * eftec/documentstoreone if we want to use the filesystem (instead of database)
 
+They will be stored in the folder 
 
 📁 \vendor
 
@@ -196,11 +215,11 @@ The magic is done using the annotation of Blade @operator
 
 > @foreach($cupcakes as $cupcake)
 
-It generates a loop of the variable $cupcakes. Where it comes from?. From here:
+It generates a loop of the variable $cupcakes. Where $cupcakes comes from?. From here:
 
-> echo $blade->run("cupcakes.catalog",['cupcakes'=>$cupcakes,'postfix'=>'mysql']);
+> echo $blade->run("cupcakes.catalog",[**'cupcakes'**=>$cupcakes,...]);
 
-Next, we should each value using the annotation of Blade {{}}
+Next, we should show each value using the annotation of Blade {{}}
 
 > <img src="img/{{$cupcake['Image']}}" ...>
 
