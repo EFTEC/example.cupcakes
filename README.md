@@ -2,7 +2,7 @@
 
 ![docs/result.jpg](docs/result.jpg)
 
-It is a project to shows the creation of a basic catalog of products. This catalog has a database loaded so we don't need to add more products.
+It is a project that shows the creation of a basic catalog of products in an hour. This catalog has a database loaded, so we don't need to add more products.
 
 The list of products could come from a MySql database or using the file system. 
 
@@ -12,7 +12,7 @@ This project requires PHP 5.6 or higher and Composer (it is a free library)
 
 ### Composer Initialize
 
-Let's open a shell in the same folder of your project and runs the next command
+Let's open a shell in the same folder of your project and runs the next command.
 
 > composer init
 
@@ -25,9 +25,9 @@ It will create the file called **composer.json**. It will ask for some informati
 You could later edit this file.
 
 
-### Installation of composer
+### Installation of Composer
 
-Using the previous shell, let-s run the command 
+Using the previous shell, let's run the command 
 
 | composer install
 
@@ -43,7 +43,7 @@ And the file composer.lock
 
 ### Installing  libraries
 
-And again, using the same shell, let's run the next commands
+And again, using the same shell, let's run the next commands.
 
 > composer require eftec/bladeone
 > composer require eftec/daoone
@@ -51,22 +51,22 @@ And again, using the same shell, let's run the next commands
 
 ![docs/composer_require.jpg](docs/composer_require.jpg)
 
-It will download the next 3 libraries: 
+It will download the next three libraries: 
 
 * eftec/bladeone for the templates
 * eftec/daoone for the database (if we want to use the database)
-* eftec/documentstoreone if we want to use the filesystem (instead of database)
+* eftec/documentstoreone if we're going to use the filesystem (instead of the database)
 
-They will be stored in the folder 
+They will be stored in the folder:
 
 📁 \vendor
 
 
 ## OK, let's code (Mysql Version)
 
-We have two version of the same project, one uses mysql while the other relies on the file system.
+We have two versions of the same project; one uses MySql while the other relies on the file system.
 
-This first version uses MySql and we will use the file app.php to access to the database. You could change the database.
+This first version uses MySql, and we will use the file app.php to access the database. You could change the database.
 
 ### Application file (app.php)
 
@@ -91,10 +91,10 @@ $db=new DaoOne("127.0.0.1","root","abc.123","cupcakes");
 $db->open();
 
 $blade=new BladeOne(); // it will create the folders compiles/ . The folder views/ must be created
-					   // if they are not create then you should create it manually
+                       // if they are not creating then you should build it manually
 ```
 
-### Initilizing the data createtable.php
+### Initializing the data createtable.php
 
 For Mysql, we will need to create the table and add some information.
  
@@ -140,7 +140,7 @@ Let's say that it fails. It could fail because:
 
 * The table already exists.
 * We don't have access to the database (you should edit the file app.php)
-* We don't have the permissions to create table.
+* We don't have the permissions to create a table.
 
 
 ### Controller (catalog_mysql.php)
@@ -157,20 +157,20 @@ include "app.php";
 $cupcakes=$db->select("*")->from("cupcakes")->order("name")->toList();
 
 echo $blade->run("cupcakes.catalog"
-	,['cupcakes'=>$cupcakes,'postfix'=>'mysql']);
+    ,['cupcakes'=>$cupcakes,'postfix'=>'mysql']);
 ```
 
 We are also passing the variable postfix. It is used to create the link to the right version.
 
 ### View (views/cupcakes/catalog.blade.php)
 
-Ok, it is a bit long, I started with the startup page of Bootstrap, I added some cards and I added a @foreach cycle
+Ok, it is a bit long, I started with the startup page of Bootstrap, I added some cards and  the annotation  @foreach cycle
 
-The images exists in the folder 
+The images exist in the folder:
 
 📁  \img   
 
-This template must exist in the folder
+This template must exist in the folder:
 
 📁 \views   
 ..... 📁 \cupcakes   
@@ -182,7 +182,7 @@ The second folder and the file comes from the line:
 
 > echo $blade->run("cupcakes.catalog",...
 
-where cupcakes is a folder, and catalog is the file (plus extension .blade.php)
+where **cupcakes** is a folder, and **catalog** is the file (plus extension .blade.php)
 
 
 ```html
@@ -245,7 +245,7 @@ Next, we should show each value using the annotation of Blade **{{}}**
 
 ## Let's code (Document Version)
 
-It doesn't uses Mysql and it stores the information into the file system (folders and files)
+It doesn't use Mysql, and it stores the information into the file system (folders and files)
 
 ### Application file
 
@@ -271,10 +271,10 @@ $doc->docExt=".json";
 
 
 $blade=new BladeOne(); // it will create the folders compiles/ . The folder views/ must be created
-					   // if they are not create then you should create it manually
+                       // if they are not created, then you should build it manually
 ```
 
-### Initilizing the data 
+### Initializing the data 
 
 We will use the folder as our database.
 
@@ -303,8 +303,7 @@ The line
 
 It reads from the document base /db/cupcake/ the file cupcakes.json and returns a list of cupcakes.  
 This operation could be quite fast since it is only reading from the file system. 
-However, it doesn't allows analysis (such as sort, filter and grouping). If we want something like this, then we must do it manually. 
-
+However, it doesn't allow analysis (such as sort, filter, and grouping). If we want something like this, then we must do it manually. 
 
 
    
