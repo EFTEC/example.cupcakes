@@ -64,12 +64,13 @@ $blade=new BladeOne(); // it will create the folders compiles/ . The folder view
 					   // if they are not create then you should create it manually
 ```
 
-### Initilizing the data
+### Initilizing the data createtable.php
 
 For Mysql, we will need to create the table and add some information.
+ 
+> We must call this page once. If we execute the page more than once, then it will generate an error (because the table exists).
 
 I create a file called createtable.php that creates the table and add 9 cupcakes to the table.  
-
 
 
 ```php
@@ -190,3 +191,16 @@ where cupcakes is a folder, and catalog is the file (plus extension .blade.php)
 </body>
 </html>
 ```
+
+The magic is done using the annotation of Blade @operator
+
+> @foreach($cupcakes as $cupcake)
+
+It generates a loop of the variable $cupcakes. Where it comes from?. From here:
+
+> echo $blade->run("cupcakes.catalog",['cupcakes'=>$cupcakes,'postfix'=>'mysql']);
+
+Next, we should each value using the annotation of Blade {{}}
+
+> <img src="img/{{$cupcake['Image']}}" ...>
+
