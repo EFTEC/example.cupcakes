@@ -2,9 +2,9 @@
 
 ![docs/result.jpg](docs/result.jpg)
 
-It is a project that shows the creation of a basic catalog of products in an hour. This catalog has a database loaded, so we don't need to add more products.
+It is a project that shows the creation of a basic catalog of products in an hour. This catalog has the information loaded, so we don't need to add more products.
 
-The list of products could come from a MySql database or using the file system. 
+The list of products could come from a MySql database or using the file system, you could pick one of them.
 
 ## Requirements
 
@@ -143,7 +143,7 @@ Let's say that it fails. It could fail because:
 * We don't have the permissions to create a table.
 
 
-### Controller (catalog_mysql.php)
+### Controller (catalog_mysql.php).
 
 Now, let's show the catalog.  We will do the next operations:
 
