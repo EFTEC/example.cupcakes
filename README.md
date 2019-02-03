@@ -133,8 +133,8 @@ The images exists in the folder
 This template must exist in the folder
 
 📁 \views   
-... 📁 \cupcakes   
-... ...🗎 catalog.blade.php   
+.... 📁 \cupcakes   
+.... .... 🗎 catalog.blade.php   
 
 Why?, the views folder is the default folder of the view (BladeOne)
 
