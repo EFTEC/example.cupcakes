@@ -45,9 +45,9 @@ And the file composer.lock
 
 And again, using the same shell, let's run the next commands.
 
-> composer require eftec/bladeone
-> composer require eftec/daoone
-> composer require eftec/documentstoreone
+> composer require eftec/bladeone  
+> composer require eftec/daoone  
+> composer require eftec/documentstoreone  
 
 ![docs/composer_require.jpg](docs/composer_require.jpg)
 
