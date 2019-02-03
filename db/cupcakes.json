@@ -1,0 +1,65 @@
+[
+  {
+    "IdCupcake": 4,
+    "Name": "Apple Pie",
+    "Image": "cupcake4.jpg",
+    "Price": "43.30",
+    "Description": "Apple Pie"
+  },
+  {
+    "IdCupcake": 8,
+    "Name": "Brownies",
+    "Image": "cupcake8.jpg",
+    "Price": "32.20",
+    "Description": "Brownies"
+  },
+  {
+    "IdCupcake": 9,
+    "Name": "Bubbly",
+    "Image": "cupcake9.jpg",
+    "Price": "33.20",
+    "Description": "Bubbly"
+  },
+  {
+    "IdCupcake": 6,
+    "Name": "Butter",
+    "Image": "cupcake6.jpg",
+    "Price": "32.20",
+    "Description": "Butter"
+  },
+  {
+    "IdCupcake": 1,
+    "Name": "Chocolate",
+    "Image": "cupcake1.jpg",
+    "Price": "20.00",
+    "Description": "Chocolate"
+  },
+  {
+    "IdCupcake": 2,
+    "Name": "Cupcake Normal",
+    "Image": "cupcake2.jpg",
+    "Price": "30.00",
+    "Description": "Cupcake Normal"
+  },
+  {
+    "IdCupcake": 3,
+    "Name": "Gourmet",
+    "Image": "cupcake3.jpg",
+    "Price": "35.50",
+    "Description": "Gourmet"
+  },
+  {
+    "IdCupcake": 7,
+    "Name": "Lemon",
+    "Image": "cupcake7.jpg",
+    "Price": "22.30",
+    "Description": "Lemon"
+  },
+  {
+    "IdCupcake": 5,
+    "Name": "Sprinkles",
+    "Image": "cupcake5.jpg",
+    "Price": "24.30",
+    "Description": "Sprinkles"
+  }
+]
