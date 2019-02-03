@@ -1,7 +1,12 @@
 # example.cupcakes
-Example of a catalog of cupcakes made with php
+
+It is a project to shows the creation of a basic catalog of products. This catalog has a database loaded so we don't need to add more products.
+
+The list of products could come from a MySql database or using the file system. 
 
 ## Composer
+
+This project requires PHP 5.6 or higher and Composer (it is a free library)  
 
 ### Initialize
 
@@ -34,7 +39,7 @@ And the file composer.lock
 
 📝 composer.json
 
-### Installation of libraries
+### Installing  libraries
 
 And again, using the same shell, let's run the next commands
 
@@ -56,6 +61,10 @@ They will be stored in the folder
 
 
 ## OK, let's code (Mysql Version)
+
+We have two version of the same project, one uses mysql while the other relies on the file system.
+
+This first version uses MySql.
 
 ### Application file
 
@@ -211,7 +220,7 @@ where cupcakes is a folder, and catalog is the file (plus extension .blade.php)
 </html>
 ```
 
-The magic is done using the annotation of Blade @operator
+The magic is done using the annotation of Blade **@some-operator**
 
 > @foreach($cupcakes as $cupcake)
 
@@ -219,7 +228,72 @@ It generates a loop of the variable $cupcakes. Where $cupcakes comes from?. From
 
 > echo $blade->run("cupcakes.catalog",[**'cupcakes'**=>$cupcakes,...]);
 
-Next, we should show each value using the annotation of Blade {{}}
+Next, we should show each value using the annotation of Blade **{{}}**
 
 > <img src="img/{{$cupcake['Image']}}" ...>
 
+## Let's code (Document Version)
+
+It doesn't uses Mysql and it stores the information into the file system (folders and files)
+
+### Application file
+
+Here, we will set the autoload (Composer), the document and the bladeone library.
+
+The bladeone library will be used as a template system. It uses the language "blade" (the same than uses Laravel)  
+
+The class DocumentStoreOne will connect to the filesystem-based database. We set the library, the serialization (we will use json) and the extension.
+
+
+```php
+<?php
+
+use eftec\bladeone\BladeOne;
+use eftec\DocumentStoreOne\DocumentStoreOne;
+
+include "vendor/autoload.php";
+
+// folder /db/cupcake
+$doc=new DocumentStoreOne("db","cupcake",null, DocumentStoreOne::DSO_FOLDER,false);
+$doc->autoSerialize(true,"json_array"); // autoserialize the object using json
+$doc->docExt=".json";
+
+
+$blade=new BladeOne(); // it will create the folders compiles/ . The folder views/ must be created
+					   // if they are not create then you should create it manually
+```
+
+### Initilizing the data 
+
+We will use the folder as our database.
+
+📁 \db   
+..... 📁 \cupcake   
+..... ..... 📝 *.json
+
+### Controller (catalog_document.php)
+
+Now, let's show the catalog.  We will do the next operations:
+
+* Read the list of cupcakes from the document repository.
+* Sends the list to the template
+
+```php   
+include "app_doc.php";
+$cupcakes=$doc->get("cupcakes");
+echo $blade->run("cupcakes.catalog",['cupcakes'=>$cupcakes,'postfix'=>'document']);
+```
+
+And we will use the same views used in the previous exercise.
+
+The line 
+
+> $cupcakes=$doc->get("cupcakes");
+
+It reads from the document base /db/cupcake/ the file cupcakes.json and returns a list of cupcakes.  
+This operation could be quite fast since it is only reading from the file system. 
+However, it doesn't allows analysis (such as sort, filter and grouping). If we want something like this, then we must do it manually. 
+
+
+
+   
