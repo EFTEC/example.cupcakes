@@ -19,8 +19,8 @@
         <small class="text-muted">Pick your cupcake</small>
     </h1>
     <div class="row">
-        @foreach($cupcakes as $cupcake)
-        <div class="col-md-4">
+        
+        <div class="col-md-12">
             <div class="card">
                 <a href="detail_{{$postfix}}.php?id={{$cupcake['IdCupcake']}}">
                     <img src="img/{{$cupcake['Image']}}" class="card-img-top" alt="{{$cupcake['Image']}}">
@@ -34,15 +34,25 @@
                             <p class="card-text">Price ${{$cupcake['Price']}}</p>
                         </div>
                     </div>
-                    <a href="detail_{{$postfix}}.php?id={{$cupcake['IdCupcake']}}" class="btn btn-primary">Eat Me</a>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="card-text">{{$cupcake['Description']}}</p>
+                            <br>
+                        </div>
+                    </div>                    
+                    <a href="catalog_{{$postfix}}.php?id={{$cupcake['IdCupcake']}}" class="btn btn-primary">Return back</a>
                 </div>
             </div>
             <br>
         </div>
-        
-        @endforeach()
+    
           
     </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
