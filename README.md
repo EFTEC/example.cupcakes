@@ -1,14 +1,16 @@
-# example.cupcakes
+# A basic catalog of products made with PHP
+
+![docs/result.jpg](docs/result.jpg)
 
 It is a project to shows the creation of a basic catalog of products. This catalog has a database loaded so we don't need to add more products.
 
 The list of products could come from a MySql database or using the file system. 
 
-## Composer
+## Requirements
 
 This project requires PHP 5.6 or higher and Composer (it is a free library)  
 
-### Initialize
+### Composer Initialize
 
 Let's open a shell in the same folder of your project and runs the next command
 
@@ -20,7 +22,7 @@ It will create the file called **composer.json**. It will ask for some informati
 
 📝 composer.json
 
-You could edit this file if you are pleased to.
+You could later edit this file.
 
 
 ### Installation of composer
@@ -64,9 +66,9 @@ They will be stored in the folder
 
 We have two version of the same project, one uses mysql while the other relies on the file system.
 
-This first version uses MySql.
+This first version uses MySql and we will use the file app.php to access to the database. You could change the database.
 
-### Application file
+### Application file (app.php)
 
 Here, we will set the autoload (Composer), the database and the bladeone library.
 
@@ -96,7 +98,7 @@ $blade=new BladeOne(); // it will create the folders compiles/ . The folder view
 
 For Mysql, we will need to create the table and add some information.
  
-> We must call this page once. If we execute the page more than once, then it will generate an error (because the table exists).
+> **We must call this page once**. If we execute the page more than once, then it will generate an error (because the table exists).
 
 I create a file called createtable.php that creates the table and add 9 cupcakes to the table.  
 
@@ -131,6 +133,15 @@ $db->runRawQuery($sql);
 
 $db->runMultipleRawQuery($rows);
 ```
+
+> Fatal error: Uncaught Exception: Exception raw CREATE TABLE `cupcakes` ( ... 
+
+Let's say that it fails. It could fail because:
+
+* The table already exists.
+* We don't have access to the database (you should edit the file app.php)
+* We don't have the permissions to create table.
+
 
 ### Controller (catalog_mysql.php)
 
