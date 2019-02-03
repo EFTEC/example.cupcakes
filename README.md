@@ -126,13 +126,15 @@ We are also passing the variable postfix. It is used to create the link to the r
 
 Ok, it is a bit long, I started with the startup page of Bootstrap, I added some cards and I added a @foreach cycle
 
-The images exists in the folder 📁  \img\
+The images exists in the folder 
+
+📁  \img   
 
 This template must exist in the folder
 
-📁 views
-... 📁 cupcakes
-... ...🗎 catalog.blade.php
+📁 \views   
+... 📁 \cupcakes   
+... ...🗎 catalog.blade.php   
 
 Why?, the views folder is the default folder of the view (BladeOne)
 
