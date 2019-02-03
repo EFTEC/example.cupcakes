@@ -66,7 +66,9 @@ They will be stored in the folder:
 
 We have two versions of the same project; one uses MySql while the other relies on the file system.
 
-This first version uses MySql, and we will use the file app.php to access the database. You could change the database.
+This first version uses MySql, and we will use the file app.php to access the database.
+ 
+> You must change the database's access according your system (user, password, etc.)
 
 ### Application file (app.php)
 
