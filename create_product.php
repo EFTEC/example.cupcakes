@@ -16,14 +16,14 @@ function validation($cupcake) {
 
 if ($button) {
 
-$cupcake['Name'] = $validaton
-	->def("")// what if the value is not read?, we should show something (or null)
-	->ifFailThenDefault(false)// if fails then we show the same value however it triggers an error
-	->type("varchar")// it is required to ind
-	->condition("req", "this value (%field) is required")
-	->condition("minlen", "The minimum lenght is 3", 3)
-	->condition("maxlen", "The maximum lenght is 100", 100)
-	->post('name'); // frm_name.  It also generates a message container called "name".
+	$cupcake['Name'] = $validaton
+		->def("")// what if the value is not read?, we should show something (or null)
+		->ifFailThenDefault(false)// if fails then we show the same value however it triggers an error
+		->type("varchar")// it is required to ind
+		->condition("req", "this value (%field) is required")
+		->condition("minlen", "The minimum lenght is 3", 3)
+		->condition("maxlen", "The maximum lenght is 100", 100)
+		->post('name'); // frm_name.  It also generates a message container called "name".
 	
 	$cupcake['Image'] = $validaton
 		->def("")
