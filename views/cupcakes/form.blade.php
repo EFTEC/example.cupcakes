@@ -77,6 +77,8 @@
         </form>
         </div>
         <div class="col-12">
+        
+            
         <ul class="text-danger">
             @foreach($validaton->getMessages() as $error)
             <li>{{$error}}</li>    
