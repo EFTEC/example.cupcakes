@@ -10,8 +10,9 @@
         }
     ],
     "require": {
-        "eftec/bladeone": "^3.19",
-        "eftec/daoone": "^3.22",
-        "eftec/documentstoreone": "^1.8"
+        "eftec/bladeone": "^3.21",
+        "eftec/daoone": "^3.26",
+        "eftec/documentstoreone": "^1.9",
+        "eftec/validationone": "1.13"
     }
 }

@@ -8,6 +8,8 @@ include "vendor/autoload.php";
 
 // folder /db/cupcake
 $doc=new DocumentStoreOne("db","cupcake",null, DocumentStoreOne::DSO_FOLDER,false);
+$doc->neverLock=true; // if never lock, it increases the speed (we don't create a lock).
+					  // however, it is dangerous for concurrency (write).
 $doc->autoSerialize(true,"json_array"); // autoserialize the object using json
 $doc->docExt=".json";
 
